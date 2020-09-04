@@ -3,19 +3,18 @@ from bst import BSTNode
 
 start_time = time.time()
 
-f = open('names_1.txt', 'r')
+f = open('/Users/Prapti/Lambda School/Sprint Challenges/Sprint-Challenge--Data-Structures-Python/names/names_1.txt', 'r')
 names_1 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
-f = open('names_2.txt', 'r')
+f = open('/Users/Prapti/Lambda School/Sprint Challenges/Sprint-Challenge--Data-Structures-Python/names/names_2.txt', 'r')
 names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
 duplicates = []  # Return the list of duplicates in this data structure
-## NOTE: Before BST implementation my first run time was 10.12610387802124 seconds
-## COOLER NOTE: After BST implementation my run time is 9.32251501083374 seconds
 
 # Replace the nested for loops below with your improvements
+# runtime: 0.20615649223327637 seconds which is under 0.6 seconds
 
 bst = BSTNode("None")
 duplicates = []
@@ -26,13 +25,6 @@ for name in names_2:
      if bst.containsTarget(name):
          duplicates.append(name)
 
-bst = BSTNode("None")
-for name in names_1:
-    bst.insert(name)
-for name in names_2:
-    if bst.contains(name):
-        duplicates.append(name)
-        
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n{', '.join(duplicates)}\n")
 print (f"runtime: {end_time - start_time} seconds")
